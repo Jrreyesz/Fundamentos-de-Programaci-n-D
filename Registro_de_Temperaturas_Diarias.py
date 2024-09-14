@@ -118,19 +118,19 @@ matr_temp = [
 
 
 for ciudad in range(len(matr_temp)):#Bucles for anidados para recorrer los elementos
-    suma_mes = []
+    suma_mes = [] #Nos ayudara a sumar los promedios de temperatura de cada semana
     for semana in range(len(matr_temp[ciudad])):
-        suma = 0
+        suma = 0 #Variable para sumar las temperatura diarias
         for dia in range(len(matr_temp[ciudad][semana])):
             for i in matr_temp[ciudad][semana][dia]:
-                if i in range(0,100):
+                if i in range(0,100): #Extraemos la temperatura de cada día por semana
                     suma += i
-                suma_prom = suma/7
+                suma_prom = suma/7 #Calculamos el promedio por semana
         if 'Piñas' in matr_temp[ciudad][semana][dia][1]:
-            suma_mes.append(suma_prom)
+            suma_mes.append(suma_prom) #Creamos una lista con los promedios de temperatura de cada semana
             print(f'El promedio de la semena {semana+1} es: {suma_prom:.2f} para la ciudad de', 'Piñas.')
             if len(suma_mes)== 4:
-                suma_mes_prom = sum(suma_mes)/4
+                suma_mes_prom = sum(suma_mes)/4 #Calculamos el promedio por mes
                 print(f'El promedio de la temperatura en Piñas en este mes fue de {suma_mes_prom:.2f}')
         if 'Portovelo' in matr_temp[ciudad][semana][dia][1]:
             suma_mes.append(suma_prom)
